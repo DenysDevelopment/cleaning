@@ -1,0 +1,81 @@
+@charset "UTF-8";
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #77608d;
+  color: #fff;
+  font-family: sans-serif;
+}
+
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+h1 {
+  text-align: center;
+  margin: 15px;
+}
+
+.users {
+  width: 100%;
+  font-size: 16px;
+}
+.users__name {
+  font-size: 1.5em;
+  font-weight: 700;
+}
+@media (max-width: 600px) {
+  .users__name {
+    grid-column: 1/-1;
+  }
+}
+.users__item {
+  position: relative;
+  width: 100%;
+  display: grid;
+  background: #24b53c;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  padding: 20px;
+  padding-top: 50px;
+}
+.users__item::before {
+  content: "Останій раз чергував: " attr(data-date);
+  color: #fafafa;
+  font-weight: 900;
+  position: absolute;
+  top: 10px;
+  left: 0px;
+  padding-left: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  width: 100%;
+}
+@media (max-width: 400px) {
+  .users__item::before {
+    content: "Чергував: " attr(data-date);
+  }
+}
+
+select {
+  display: block;
+  width: 100%;
+  height: 30px;
+  border: 0;
+}
+
+/*# sourceMappingURL=style.css.map */
