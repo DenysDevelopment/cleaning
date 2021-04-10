@@ -34,6 +34,11 @@ h1 {
   width: 100%;
   font-size: 16px;
 }
+@media (max-width: 600px) {
+  .users__count {
+    grid-column: 1/-1;
+  }
+}
 .users__name {
   font-size: 1.5em;
   font-weight: 700;
