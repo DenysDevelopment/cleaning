@@ -48,6 +48,13 @@ h1 {
     grid-column: 1/-1;
   }
 }
+.users__fine {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1em;
+  font-weight: 900;
+}
 .users__item {
   position: relative;
   width: 100%;

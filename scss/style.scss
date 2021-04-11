@@ -43,7 +43,13 @@ h1 {
       grid-column: 1 / -1
      }
   }
-
+ &__fine {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1em;
+    font-weight: 900;      
+  }
   &__item {
     position: relative;
     width: 100%;
@@ -68,6 +74,7 @@ h1 {
       border-bottom: 1px solid rgba(255, 255, 255, 0.3);
       width: 100%;
     }
+ 
 
     @media (max-width: 400px) { 
       &::before {
