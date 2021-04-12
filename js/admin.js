@@ -1,17 +1,20 @@
-const URL_GET = "https://cherguvannya-f8c7b-default-rtdb.firebaseio.com/db.json"
+const URL_GET =
+  "https://cherguvannya-f8c7b-default-rtdb.firebaseio.com/db.json";
+const URL_FOR_ERROR =
+  "https://cherguvannya-f8c7b-default-rtdb.firebaseio.com/error.json";
 const URL_UPDATE = (id) =>
-  `https://cherguvannya-f8c7b-default-rtdb.firebaseio.com/db/${id}.json`
+  `https://cherguvannya-f8c7b-default-rtdb.firebaseio.com/db/${id}.json`;
 
 async function updateData(url, data) {
   const dataResponse = await fetch(url, {
     method: "PUT",
     body: JSON.stringify(data),
-  })
+  });
 }
 
 async function getData(url) {
-  const dataResponse = await fetch(url)
-  return dataResponse
+  const dataResponse = await fetch(url);
+  return dataResponse;
 }
 
 // Антонюк Анатолій
@@ -56,14 +59,13 @@ async function getData(url) {
 // 	})
 // })
 
-const btn = document.querySelector(".submit")
+const btn = document.querySelector(".submit");
 
 btn.addEventListener("click", () => {
-  const users = document.querySelector(".users")
-  const role = document.querySelector(".role")
+  const users = document.querySelector(".users");
+  const role = document.querySelector(".role");
 
-  const nameAndId = users.value.split("/")
-  console.log("done")
+  const nameAndId = users.value.split("/");
   getData(URL_GET)
     .then((data) => data.json())
     .then((data) => {
@@ -83,17 +85,31 @@ btn.addEventListener("click", () => {
           role.value == "sweep"
             ? +data[nameAndId[0]].countSweep + 1
             : +data[nameAndId[0]].countSweep,
-      })
+      });
+      new PopUp("success", "Успішно буде черговати").create();
+      setTimeout(() => {
+        new PopUp().close();
+      }, 5000);
     })
-})
+    .catch((err) => {
+      new PopUp("err", `щось пішло не так, ${err}`).create();
+      fetch(URL_FOR_ERROR, {
+        methods: "POST",
+        body: err,
+      });
+      setTimeout(() => {
+        new PopUp().close();
+      }, 5000);
+    });
+});
 
 //fine
-const btnFine = document.querySelector(".submit-fine")
+const btnFine = document.querySelector(".submit-fine");
 
 btnFine.addEventListener("click", () => {
-  const usersFine = document.querySelector(".users-fine")
+  const usersFine = document.querySelector(".users-fine");
 
-  const nameAndId = usersFine.value.split("/")
+  const nameAndId = usersFine.value.split("/");
 
   getData(URL_GET)
     .then((data) => data.json())
@@ -105,6 +121,46 @@ btnFine.addEventListener("click", () => {
         lastDate: data[nameAndId[0]].lastDate,
         countWash: +data[nameAndId[0]].countWash,
         countSweep: +data[nameAndId[0]].countSweep,
-      })
+      });
+      new PopUp("success", "Успішно буде черговати").create();
+      setTimeout(() => {
+        new PopUp().close();
+      }, 5000);
     })
-})
+    .catch((err) => {
+      new PopUp("err", `щось пішло не так, ${err}`).create();
+      fetch(URL_FOR_ERROR, {
+        method: "POST",
+        body: JSON.stringify({ err: err }),
+      });
+      setTimeout(() => {
+        new PopUp().close();
+      }, 5000);
+    });
+});
+
+class PopUp {
+  constructor(type = "", textHtml = "") {
+    this.textHtml = textHtml;
+    this.type = type;
+  }
+
+  create() {
+    let popUp = document.createElement("div");
+    popUp.classList.add("pop-up");
+    popUp.innerHTML = this.textHtml;
+
+    document.body.insertAdjacentElement("afterbegin", popUp);
+
+    if (this.type === "success") {
+      popUp.classList.add("success");
+    }
+    if (this.type === "err") {
+      popUp.classList.add("err");
+    }
+  }
+
+  close() {
+    document.querySelector(".pop-up").remove();
+  }
+}
