@@ -142,4 +142,37 @@ select {
   margin: 0 auto;
   font-size: 2em;
 }
+
+.section {
+  padding: 20px 0px;
+}
+
+h2 {
+  text-align: center;
+  font-size: 2em;
+  letter-spacing: 0.03em;
+  margin-bottom: 10px;
+}
+
+hr {
+  border: 0;
+  width: 100%;
+  display: block;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.admin-btn {
+  width: 100%;
+  margin-top: 10px;
+  border: 0;
+  height: 40px;
+  border-radius: 5px;
+  font-size: 1em;
+  outline: 0;
+}
+
+select {
+  margin-bottom: 10px;
+}
 /*# sourceMappingURL=style.css.map */
