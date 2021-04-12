@@ -1,16 +1,17 @@
-const URL_GET = 'https://cherguvannya-f8c7b-default-rtdb.firebaseio.com/db.json';
-const URL_UPDATE = id => `https://cherguvannya-f8c7b-default-rtdb.firebaseio.com/db/${id}.json`;
+const URL_GET = "https://cherguvannya-f8c7b-default-rtdb.firebaseio.com/db.json"
+const URL_UPDATE = (id) =>
+  `https://cherguvannya-f8c7b-default-rtdb.firebaseio.com/db/${id}.json`
 
-async function updateData(url,data) {
-	const dataResponse = await fetch(url,{
-		method: 'PUT',
-		body: JSON.stringify(data),
-	});
+async function updateData(url, data) {
+  const dataResponse = await fetch(url, {
+    method: "PUT",
+    body: JSON.stringify(data),
+  })
 }
 
 async function getData(url) {
-	const dataResponse = await fetch(url);
-	return dataResponse;
+  const dataResponse = await fetch(url)
+  return dataResponse
 }
 
 // Антонюк Анатолій
@@ -55,28 +56,55 @@ async function getData(url) {
 // 	})
 // })
 
+const btn = document.querySelector(".submit")
 
+btn.addEventListener("click", () => {
+  const users = document.querySelector(".users")
+  const role = document.querySelector(".role")
 
-// const btn = document.querySelector('.submit');
+  const nameAndId = users.value.split("/")
+  console.log("done")
+  getData(URL_GET)
+    .then((data) => data.json())
+    .then((data) => {
+      updateData(URL_UPDATE(nameAndId[0]), {
+        name: nameAndId[1],
+        countFine:
+          data[nameAndId[0]].countFine > 0
+            ? data[nameAndId[0]].countFine - 1
+            : data[nameAndId[0]].countFine,
+        count: data[nameAndId[0]].count + 1,
+        lastDate: new Date().toLocaleDateString().replaceAll("/", "."),
+        countWash:
+          role.value == "wash"
+            ? +data[nameAndId[0]].countWash + 1
+            : +data[nameAndId[0]].countWash,
+        countSweep:
+          role.value == "sweep"
+            ? +data[nameAndId[0]].countSweep + 1
+            : +data[nameAndId[0]].countSweep,
+      })
+    })
+})
 
-// btn.addEventListener('click',() => {
-// 	const users = document.querySelector('.users');
-// 	const role = document.querySelector('.role');
+//fine
+const btnFine = document.querySelector(".submit-fine")
 
-// 	const nameAndId = users.value.split('/');
+btnFine.addEventListener("click", () => {
+  const usersFine = document.querySelector(".users-fine")
 
-// 	getData(URL_GET)
-// 		.then(data => data.json())
-// 		.then(data => {
-// 			updateData(URL_UPDATE(nameAndId[0]), {
-// 				name: nameAndId[1],
-// 				count: data[nameAndId[0]].count + 1,
-// 				lastDate: new Date().toLocaleDateString().replaceAll('/','.'),
-// 				countWash: role.value == 'wash' ? data[nameAndId[0]].countWash + 1 : data[nameAndId[0]].countWash,
-// 				countSweep: role.value == 'sweep' ? data[nameAndId[0]].countSweep + 1 : data[nameAndId[0]].countSweep,
-// 		})
-// 	})	
-// });
+  const nameAndId = usersFine.value.split("/")
 
-
-
+  getData(URL_GET)
+    .then((data) => data.json())
+    .then((data) => {
+      updateData(URL_UPDATE(nameAndId[0]), {
+        name: nameAndId[1],
+        countFine: +data[nameAndId[0]].countFine + 1,
+        count: data[nameAndId[0]].count,
+        lastDate: data[nameAndId[0]].lastDate,
+        countWash: +data[nameAndId[0]].countWash,
+        countSweep: +data[nameAndId[0]].countSweep,
+      })
+    })
+})

@@ -40,15 +40,15 @@ h1 {
     font-size: 1.5em;
     font-weight: 700;
     @media (max-width: 600px) {
-      grid-column: 1 / -1
-     }
+      grid-column: 1 / -1;
+    }
   }
- &__fine {
+  &__fine {
     position: absolute;
     top: 10px;
     right: 10px;
     font-size: 1em;
-    font-weight: 900;      
+    font-weight: 900;
   }
   &__item {
     position: relative;
@@ -64,7 +64,7 @@ h1 {
 
     &::before {
       content: "Останій раз чергував: " attr(data-date);
-      color: rgb(250,250,250);
+      color: rgb(250, 250, 250);
       font-weight: 900;
       position: absolute;
       top: 10px;
@@ -74,11 +74,10 @@ h1 {
       border-bottom: 1px solid rgba(255, 255, 255, 0.3);
       width: 100%;
     }
- 
 
-    @media (max-width: 400px) { 
+    @media (max-width: 400px) {
       &::before {
-        content: 'Чергував: ' attr(data-date);
+        content: "Чергував: " attr(data-date);
       }
     }
   }
@@ -88,4 +87,33 @@ select {
   width: 100%;
   height: 30px;
   border: 0;
+}
+.tab {
+  margin-bottom: 20px;
+  // .tab__btns
+  &__btns {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  button {
+    flex: 1 1 50%;
+    border: 0;
+    padding: 10px 0;
+    outline: 0;
+    transition: all 0.3s;
+    @media (min-width: 768px) {
+      &:hover {
+        flex: 1 1 51%;
+        background: rgb(6, 172, 184);
+        color: #fff;
+      }
+    }
+  }
+}
+
+.not-found {
+  margin: 0 auto;
+  font-size: 2em;
 }

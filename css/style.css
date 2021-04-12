@@ -4,7 +4,8 @@
 *::after {
   padding: 0;
   margin: 0;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 body {
@@ -14,8 +15,11 @@ body {
 }
 
 ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   gap: 10px;
 }
 
@@ -34,20 +38,24 @@ h1 {
   width: 100%;
   font-size: 16px;
 }
+
 @media (max-width: 600px) {
   .users__count {
-    grid-column: 1/-1;
+    grid-column: 1 / -1;
   }
 }
+
 .users__name {
   font-size: 1.5em;
   font-weight: 700;
 }
+
 @media (max-width: 600px) {
   .users__name {
-    grid-column: 1/-1;
+    grid-column: 1 / -1;
   }
 }
+
 .users__fine {
   position: absolute;
   top: 10px;
@@ -55,16 +63,20 @@ h1 {
   font-size: 1em;
   font-weight: 900;
 }
+
 .users__item {
   position: relative;
   width: 100%;
+  display: -ms-grid;
   display: grid;
   background: #24b53c;
-  grid-template-columns: 1fr 1fr;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
   gap: 20px;
   padding: 20px;
   padding-top: 50px;
 }
+
 .users__item::before {
   content: "Останій раз чергував: " attr(data-date);
   color: #fafafa;
@@ -77,6 +89,7 @@ h1 {
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   width: 100%;
 }
+
 @media (max-width: 400px) {
   .users__item::before {
     content: "Чергував: " attr(data-date);
@@ -90,4 +103,43 @@ select {
   border: 0;
 }
 
+.tab {
+  margin-bottom: 20px;
+}
+
+.tab__btns {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: 10px;
+}
+
+.tab button {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 50%;
+          flex: 1 1 50%;
+  border: 0;
+  padding: 10px 0;
+  outline: 0;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+@media (min-width: 768px) {
+  .tab button:hover {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 51%;
+            flex: 1 1 51%;
+    background: #06acb8;
+    color: #fff;
+  }
+}
+
+.not-found {
+  margin: 0 auto;
+  font-size: 2em;
+}
 /*# sourceMappingURL=style.css.map */
