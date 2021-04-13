@@ -73,8 +73,8 @@ btn.addEventListener("click", () => {
         name: nameAndId[1],
         countFine:
           data[nameAndId[0]].countFine > 0
-            ? data[nameAndId[0]].countFine - 1
-            : data[nameAndId[0]].countFine,
+            ? +data[nameAndId[0]].countFine - 1
+            : +data[nameAndId[0]].countFine,
         count: data[nameAndId[0]].count + 1,
         lastDate: new Date().toLocaleDateString().replaceAll("/", "."),
         countWash:

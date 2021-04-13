@@ -29,6 +29,7 @@ h1 {
 .users {
   width: 100%;
   font-size: 16px;
+  margin-bottom: 20px;
 
   @media (max-width: 600px) {
     &__count {
@@ -182,5 +183,20 @@ select {
   }
   100% {
     opacity: 1;
+  }
+}
+.footer {
+  padding: 20px 5px;
+  font-size: 1.3em;
+  border-top: 1px solid #fff;
+
+  &__bags {
+    margin-bottom: 10px;
+  }
+  &__features {
+  }
+
+  a {
+    color: rgb(1, 243, 74);
   }
 }
