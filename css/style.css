@@ -4,22 +4,44 @@
 *::after {
   padding: 0;
   margin: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-  background-color: #77608d;
+  position: relative;
   color: #fff;
   font-family: sans-serif;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  min-height: 100vh;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+@keyframes gradient-anim {
+  0% {
+    background-position: 0% 150%;
+  }
+  50% {
+    background-position: 50%, 50%;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+.header {
+  position: relative;
+  z-index: 2;
+}
+
+.main {
+  flex: 1 1 auto;
 }
 
 ul {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
   gap: 10px;
 }
 
@@ -39,24 +61,20 @@ h1 {
   font-size: 16px;
   margin-bottom: 20px;
 }
-
 @media (max-width: 600px) {
   .users__count {
-    grid-column: 1 / -1;
+    grid-column: 1/-1;
   }
 }
-
 .users__name {
   font-size: 1.5em;
   font-weight: 700;
 }
-
 @media (max-width: 600px) {
   .users__name {
-    grid-column: 1 / -1;
+    grid-column: 1/-1;
   }
 }
-
 .users__fine {
   position: absolute;
   top: 10px;
@@ -64,20 +82,19 @@ h1 {
   font-size: 1em;
   font-weight: 900;
 }
-
 .users__item {
   position: relative;
   width: 100%;
-  display: -ms-grid;
   display: grid;
-  background: #24b53c;
-  -ms-grid-columns: 1fr 1fr;
-      grid-template-columns: 1fr 1fr;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+  grid-template-columns: 1fr 1fr;
   gap: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
   padding: 20px;
   padding-top: 50px;
 }
-
 .users__item::before {
   content: "Останій раз чергував: " attr(data-date);
   color: #fafafa;
@@ -90,7 +107,6 @@ h1 {
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   width: 100%;
 }
-
 @media (max-width: 400px) {
   .users__item::before {
     content: "Чергував: " attr(data-date);
@@ -107,33 +123,21 @@ select {
 .tab {
   margin-bottom: 20px;
 }
-
 .tab__btns {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
   gap: 10px;
 }
-
 .tab button {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1 50%;
-          flex: 1 1 50%;
+  flex: 1 1 50%;
   border: 0;
   padding: 10px 0;
   outline: 0;
-  -webkit-transition: all 0.3s;
   transition: all 0.3s;
 }
-
 @media (min-width: 768px) {
   .tab button:hover {
-    -webkit-box-flex: 1;
-        -ms-flex: 1 1 51%;
-            flex: 1 1 51%;
+    flex: 1 1 51%;
     background: #06acb8;
     color: #fff;
   }
@@ -181,25 +185,16 @@ select {
   position: fixed;
   top: 15px;
   right: 15px;
-  -webkit-backdrop-filter: blur(20px);
-          backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
   border-radius: 5px;
   padding: 15px 25px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
   border: 1px solid;
   opacity: 0;
-  -webkit-transition: all 0.3s;
   transition: all 0.3s;
-  -webkit-animation: opacityAnim 0.3s forwards;
-          animation: opacityAnim 0.3s forwards;
+  animation: opacityAnim 0.3s forwards;
 }
 
 .success {
@@ -210,15 +205,6 @@ select {
   background: rgba(255, 0, 0, 0.5);
 }
 
-@-webkit-keyframes opacityAnim {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
 @keyframes opacityAnim {
   0% {
     opacity: 0;
@@ -227,18 +213,18 @@ select {
     opacity: 1;
   }
 }
-
 .footer {
   padding: 20px 5px;
   font-size: 1.3em;
   border-top: 1px solid #fff;
+  backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.2);
 }
-
 .footer__bags {
   margin-bottom: 10px;
 }
-
 .footer a {
   color: #01f34a;
 }
+
 /*# sourceMappingURL=style.css.map */

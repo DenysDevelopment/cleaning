@@ -73,3 +73,19 @@ btnFinetabElem.addEventListener("click", () => {
     out.innerHTML = "<div class='not-found'>Немає штрафів</div>"
   }
 })
+
+//change background
+// const API_KEY = '4ikKa13E4rnv2uUjr8RfUwA4J3Myoi7jMOGaucUyN4w';
+// const URL_IMG = `https://api.unsplash.com/photos/random?client_id=${API_KEY}`;
+
+// function changeBackground(url) {
+//   axios.get(url) 
+//   .then(response => {
+//     console.log(response.data.urls.raw)
+//     document.body.style.backgroundImage = `url(${response.data.urls.full})`;
+//   })
+// }
+// changeBackground(URL_IMG);
+
+//bg pattern 
+document.body.style.backgroundImage = `url(../img/${Math.floor(Math.random() * 14)}.png)`;
