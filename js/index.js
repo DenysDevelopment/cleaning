@@ -88,4 +88,4 @@ btnFinetabElem.addEventListener("click", () => {
 // changeBackground(URL_IMG);
 
 //bg pattern 
-document.body.style.backgroundImage = `url(../img/${Math.floor(Math.random() * 14)}.png)`;
+document.body.style.backgroundImage = `url(./img/${Math.floor(Math.random() * 14)}.png)`;
