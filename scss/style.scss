@@ -14,41 +14,25 @@ body {
   justify-content: space-between;
   flex-direction: column;
   min-height: 100vh;
-  // background: #000;
-  background-position: center;
   background-attachment: fixed;
 
-  // &::before {
-  //   content: '';
-  //   position: absolute;
-  //   top: 0;
-  //   left: 0;
-  //   width: 100%;
-  //   height: 100%;
-  //   background: rgba(0, 0, 0, .7);
-  // }
-
-  // animation: gradient-anim 3s infinite alternate;
-
-  // @media (min-width: 992px) {
-    // background-size: 200%;
-    // background: rgb(131,58,180);
-    // background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(238,63,63,1) 50%, #7917d4 100%);
-   
-  // }
+  background-color: rgb(131, 58, 180);
+  background: linear-gradient(90deg, #833ab4 0%, #f93f3f 50%, #7917d4 100%);
+  background-size: 200%;
+  animation: gradientAnim 3s infinite;
 }
 
- @keyframes gradient-anim {
-    0% {
-      background-position: 0% 150%;
-    }
-    50% {
-      background-position: 50%, 50%;
-    }
-    100% {
-      background-position: 0 0;
-    }
+@keyframes gradientAnim {
+  0% {
+    background-position: 0% 150%;
   }
+  50% {
+    background-position: 50%, 50%;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
 
 .header {
   position: relative;
@@ -104,12 +88,12 @@ h1 {
     width: 100%;
 
     display: grid;
-    background: rgba(255,255,255,0.2);
+    background: rgba(255, 255, 255, 0.2);
     border-radius: 8px;
-    backdrop-filter: blur(10px);
+    // backdrop-filter: blur(10px);
     grid-template-columns: 1fr 1fr;
     gap: 20px;
-    border: 1px solid rgba(255,255,255,.3);
+    border: 1px solid rgba(255, 255, 255, 0.3);
 
     padding: 20px;
     padding-top: 50px;
@@ -241,7 +225,7 @@ select {
   font-size: 1.3em;
   border-top: 1px solid #fff;
   backdrop-filter: blur(20px);
-  background: rgba(255,255,255,.2);
+  background: rgba(255, 255, 255, 0.2);
 
   &__bags {
     margin-bottom: 10px;
@@ -253,5 +237,3 @@ select {
     color: rgb(1, 243, 74);
   }
 }
-
-
