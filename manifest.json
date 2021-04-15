@@ -1,34 +1,16 @@
 {
-  "short_name": "Cleaning",
   "name": "Cleaning - чергування 15/17",
+  "short_name": "Cleaning",
+  "theme_color": "#3a1a86",
+  "background_color": "#1a4f79",
+  "display": "standalone",
+  "orientation": "portrait",
+  "start_url": ".",
   "icons": [
     {
-      "src": "/img/logo.png",
-      "type": "image/png",
-      "sizes": "192x192"
-    },
-    {
-      "src": "/img/logo.png",
-      "type": "image/png",
-      "sizes": "512x512"
-    }
-  ],
-  "start_url": "/",
-  "background_color": "#3367D6",
-  "display": "fullscreen",
-  "scope": "/",
-  "theme_color": "#3367D6",
-  "description": "Чергування 15/17 групи",
-  "screenshots": [
-    {
-      "src": "/img/Screenshot1.png",
-      "type": "image/png",
-      "sizes": "540x750"
-    },
-    {
-      "src": "/img/Screenshot2.jpg",
-      "type": "image/jpg",
-      "sizes": "540x750"
+      "src": "./img/logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
     }
   ]
 }
