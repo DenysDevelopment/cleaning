@@ -117,12 +117,19 @@ h1 {
   display: grid;
   background: rgba(255, 255, 255, 0.2);
   border-radius: 8px;
-  -ms-grid-columns: 1.5fr 0.5fr;
-      grid-template-columns: 1.5fr 0.5fr;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
   gap: 20px;
   border: 1px solid rgba(255, 255, 255, 0.3);
   padding: 20px;
   padding-top: 50px;
+}
+
+@media (min-width: 900px) {
+  .users__item {
+    -ms-grid-columns: 1.2fr 0.8fr;
+        grid-template-columns: 1.2fr 0.8fr;
+  }
 }
 
 .users__item::before {
