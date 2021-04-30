@@ -5,17 +5,12 @@
   margin: 0;
   box-sizing: border-box;
 }
-.users__item--hidden {
-  display: none;
-}
+
 body {
   position: relative;
   color: #fff;
   font-family: sans-serif;
 
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
   min-height: 100vh;
   background-attachment: fixed;
 
@@ -42,14 +37,14 @@ body {
   z-index: 2;
 }
 
-.main {
-  flex: 1 1 auto;
-}
-
 ul {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr;
   gap: 10px;
+
+  @media (min-width: 900px) {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 .container {
@@ -94,7 +89,7 @@ h1 {
     background: rgba(255, 255, 255, 0.2);
     border-radius: 8px;
     // backdrop-filter: blur(10px);
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1.5fr 0.5fr;
     gap: 20px;
     border: 1px solid rgba(255, 255, 255, 0.3);
 

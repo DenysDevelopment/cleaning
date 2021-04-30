@@ -12,20 +12,12 @@ body {
   position: relative;
   color: #fff;
   font-family: sans-serif;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
   min-height: 100vh;
   background-attachment: fixed;
   background-color: #833ab4;
   background: -webkit-gradient(linear, left top, right top, from(#833ab4), color-stop(50%, #f93f3f), to(#7917d4));
+  background: -webkit-linear-gradient(left, #833ab4 0%, #f93f3f 50%, #7917d4 100%);
+  background: -o-linear-gradient(left, #833ab4 0%, #f93f3f 50%, #7917d4 100%);
   background: linear-gradient(90deg, #833ab4 0%, #f93f3f 50%, #7917d4 100%);
   background-size: 200%;
   -webkit-animation: gradientAnim 3s infinite;
@@ -61,19 +53,19 @@ body {
   z-index: 2;
 }
 
-.main {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 1 auto;
-          flex: 1 1 auto;
+ul {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+  gap: 10px;
 }
 
-ul {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  gap: 10px;
+@media (min-width: 900px) {
+  ul {
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+  }
 }
 
 .container {
@@ -125,16 +117,12 @@ h1 {
   display: grid;
   background: rgba(255, 255, 255, 0.2);
   border-radius: 8px;
-  -ms-grid-columns: 1fr 1fr;
-      grid-template-columns: 1fr 1fr;
+  -ms-grid-columns: 1.5fr 0.5fr;
+      grid-template-columns: 1.5fr 0.5fr;
   gap: 20px;
   border: 1px solid rgba(255, 255, 255, 0.3);
   padding: 20px;
   padding-top: 50px;
-}
-
-.users__item--hidden {
-  display: none;
 }
 
 .users__item::before {
@@ -185,6 +173,7 @@ select {
   padding: 10px 0;
   outline: 0;
   -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
   transition: all 0.3s;
 }
 
@@ -256,6 +245,7 @@ select {
   border: 1px solid;
   opacity: 0;
   -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
   transition: all 0.3s;
   -webkit-animation: opacityAnim 0.3s forwards;
           animation: opacityAnim 0.3s forwards;
