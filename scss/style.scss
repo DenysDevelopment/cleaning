@@ -5,6 +5,9 @@
   margin: 0;
   box-sizing: border-box;
 }
+.users__item--hidden {
+  display: none;
+}
 body {
   position: relative;
   color: #fff;
