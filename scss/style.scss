@@ -15,7 +15,7 @@ body {
   background-attachment: fixed;
 
   background-color: rgb(131, 58, 180);
-  background: linear-gradient(90deg, #833ab4 0%, #f93f3f 50%, #7917d4 100%);
+  background: linear-gradient(90deg, #9337cf 0%, #3f7af9 50%, #7917d4 100%);
   background-size: 200%;
   animation: gradientAnim 3s infinite;
 }
@@ -189,8 +189,6 @@ select {
   position: fixed;
   top: 15px;
   right: 15px;
-  backdrop-filter: blur(20px);
-
   border-radius: 5px;
   padding: 15px 25px;
   display: flex;

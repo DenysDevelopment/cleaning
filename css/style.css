@@ -15,10 +15,10 @@ body {
   min-height: 100vh;
   background-attachment: fixed;
   background-color: #833ab4;
-  background: -webkit-gradient(linear, left top, right top, from(#833ab4), color-stop(50%, #f93f3f), to(#7917d4));
-  background: -webkit-linear-gradient(left, #833ab4 0%, #f93f3f 50%, #7917d4 100%);
-  background: -o-linear-gradient(left, #833ab4 0%, #f93f3f 50%, #7917d4 100%);
-  background: linear-gradient(90deg, #833ab4 0%, #f93f3f 50%, #7917d4 100%);
+  background: -webkit-gradient(linear, left top, right top, from(#9337cf), color-stop(50%, #3f7af9), to(#7917d4));
+  background: -webkit-linear-gradient(left, #9337cf 0%, #3f7af9 50%, #7917d4 100%);
+  background: -o-linear-gradient(left, #9337cf 0%, #3f7af9 50%, #7917d4 100%);
+  background: linear-gradient(90deg, #9337cf 0%, #3f7af9 50%, #7917d4 100%);
   background-size: 200%;
   -webkit-animation: gradientAnim 3s infinite;
           animation: gradientAnim 3s infinite;
@@ -229,8 +229,6 @@ select {
   position: fixed;
   top: 15px;
   right: 15px;
-  -webkit-backdrop-filter: blur(20px);
-          backdrop-filter: blur(20px);
   border-radius: 5px;
   padding: 15px 25px;
   display: -webkit-box;
