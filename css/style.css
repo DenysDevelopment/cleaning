@@ -133,6 +133,10 @@ h1 {
   padding-top: 50px;
 }
 
+.users__item--hidden {
+  display: none;
+}
+
 .users__item::before {
   content: "Останій раз чергував: " attr(data-date);
   color: #fafafa;
