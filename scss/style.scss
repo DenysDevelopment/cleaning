@@ -6,6 +6,10 @@
   box-sizing: border-box;
 }
 
+button {
+  cursor: pointer;
+}
+
 body {
   position: relative;
   color: #fff;
@@ -158,6 +162,9 @@ select {
 
 .section {
   padding: 20px 0px;
+  &:not(:last-child) {
+    margin-bottom: 30px;
+  }
 }
 
 h2 {
@@ -190,9 +197,6 @@ select {
 }
 
 .pop-up {
-  position: fixed;
-  top: 15px;
-  right: 15px;
   border-radius: 5px;
   padding: 15px 25px;
   display: flex;
@@ -206,10 +210,10 @@ select {
 }
 
 .success {
-  background: rgba(60, 255, 0, 0.5);
+  background: rgba(60, 255, 0, 0.9);
 }
 .err {
-  background: rgba(255, 0, 0, 0.5);
+  background: rgba(255, 0, 0, 0.9);
 }
 
 @keyframes opacityAnim {
@@ -235,5 +239,28 @@ select {
 
   a {
     color: rgb(1, 243, 74);
+  }
+}
+#date {
+  display: block;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.out-modal {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+
+  width: 500px;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+
+  @media (max-width: 600px) {
+    width: 100%;
+    top: 5px;
+    right: 0;
   }
 }

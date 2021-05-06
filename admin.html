@@ -1,30 +1,87 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html lang="ru">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="apple-touch-icon" sizes="57x57" href="./img/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="./img/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="./img/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="./img/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="./img/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="./img/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="./img/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="./img/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="./img/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192"  href="./img/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="./img/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96" href="./img/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="./img/favicon-16x16.png">
-    <link rel="manifest" href="./img/manifest.json">
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="./img/ms-icon-144x144.png">
-    <meta name="theme-color" content="#ffffff">
+    <link
+      rel="apple-touch-icon"
+      sizes="57x57"
+      href="./img/apple-icon-57x57.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="60x60"
+      href="./img/apple-icon-60x60.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="72x72"
+      href="./img/apple-icon-72x72.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="76x76"
+      href="./img/apple-icon-76x76.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="114x114"
+      href="./img/apple-icon-114x114.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="120x120"
+      href="./img/apple-icon-120x120.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="144x144"
+      href="./img/apple-icon-144x144.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="152x152"
+      href="./img/apple-icon-152x152.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./img/apple-icon-180x180.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="./img/android-icon-192x192.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./img/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="96x96"
+      href="./img/favicon-96x96.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./img/favicon-16x16.png"
+    />
+    <link rel="manifest" href="./img/manifest.json" />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta name="msapplication-TileImage" content="./img/ms-icon-144x144.png" />
+    <meta name="theme-color" content="#ffffff" />
     <title>Document</title>
     <link rel="stylesheet" href="css/style.css" />
     <script src="js/admin.js" defer></script>
   </head>
   <body>
+    <div class="out-modal"></div>
     <section class="add section">
       <div class="container">
         <h2>Назначити черговим</h2>
@@ -48,8 +105,8 @@
             <option value="-MXx5QLmcVAE34bKmtg-/Денисенко Максим">
               Денисенко Максим
             </option>
-            
-             <option value="-MXx69svXSS2MweVGJoV/Максимук Денис">
+
+            <option value="-MXx69svXSS2MweVGJoV/Максимук Денис">
               Максимук Денис
             </option>
             <option value="-MXx5NTwbNAPOjULezT1/Мушка Сергій">
@@ -78,7 +135,7 @@
             </option>
           </optgroup>
           <optgroup label="17 группа">
-           <option value="-MXx5OUdE1E3dqAXfBGH/Мороз Денис">
+            <option value="-MXx5OUdE1E3dqAXfBGH/Мороз Денис">
               Мороз Денис
             </option>
             <option value="-MXx5DZGJBeot4AOTIJI/Балецький Олександр">
@@ -125,10 +182,116 @@
           <option value="wash">Миє підлогу</option>
           <option value="sweep">Замітає</option>
         </select>
+        <h3>Дата</h3>
+        <input type="date" id="date" />
         <button class="submit admin-btn">Добавити</button>
       </div>
     </section>
 
+    <hr />
+    <section class="remove section">
+      <div class="container">
+        <h2>Удалити чергового</h2>
+        <select class="users">
+          <optgroup label="15 группа">
+            <option value="-MXx5ThJpWnAv0fEOtff/Антонюк Анатолій">
+              Антонюк Анатолій
+            </option>
+            <option value="-MXv0GS-e5GPRnBVjwmq/Приходько Максим">
+              Приходько Максим
+            </option>
+            <option value="-MXx5TMcnztLBx9J8jOY/Гушинець Роман">
+              Гушинець Роман
+            </option>
+            <option value="-MXx5Sa36-UZ857RinYi/Власюк Андрій">
+              Власюк Андрій
+            </option>
+            <option value="-MXx5RFh5dCW1vt4jsaf/Давидюк Назар">
+              Давидюк Назар
+            </option>
+            <option value="-MXx5QLmcVAE34bKmtg-/Денисенко Максим">
+              Денисенко Максим
+            </option>
+
+            <option value="-MXx69svXSS2MweVGJoV/Максимук Денис">
+              Максимук Денис
+            </option>
+            <option value="-MXx5NTwbNAPOjULezT1/Мушка Сергій">
+              Мушка Сергій
+            </option>
+            <option value="-MXx5MYjP6xAPcey9qCF/Павляшик Олександр">
+              Павляшик Олександр
+            </option>
+            <option value="-MXx5LVVz-7Tt_Utj2r3/Приходько Максим">
+              Приходько Максим
+            </option>
+            <option value="-MXx5Kcr8UXjCjCeGpYH/Римарук Влад">
+              Римарук Влад
+            </option>
+            <option value="-MXx5Hy_C1OaLw01aigk/Хмарук Ілля">
+              Хмарук Ілля
+            </option>
+            <option value="-MXx5H0xpGuoszS_8oB_/Шеремета Ілля">
+              Шеремета Ілля
+            </option>
+            <option value="-MXx5FytfEVWrZGYhPS0/Ярмолюк Максим">
+              Ярмолюк Максим
+            </option>
+            <option value="-MXx5F506IMil47ZkXyl/Інкін Богдан">
+              Інкін Богдан
+            </option>
+          </optgroup>
+          <optgroup label="17 группа">
+            <option value="-MXx5OUdE1E3dqAXfBGH/Мороз Денис">
+              Мороз Денис
+            </option>
+            <option value="-MXx5DZGJBeot4AOTIJI/Балецький Олександр">
+              Балецький Олександр
+            </option>
+            <option value="-MXx5BRjA1rA_pjX0x_w/Грошева Юля">
+              Грошева Юля
+            </option>
+            <option value="-MXx5AFMUgOUkcxIWnHH/Демченко Павло">
+              Демченко Павло
+            </option>
+            <option value="-MXx59QjaIiuGITFPPNr/Здрок Андрій">
+              Здрок Андрій
+            </option>
+            <option value="-MXx58GEl7Vz_54GIb-g/Кичка Анастасія">
+              Кичка Анастасія
+            </option>
+            <option value="-MXx57Lwyt3VdDQEDlUM/Лавренюк Ілля">
+              Лавренюк Ілля
+            </option>
+            <option value="-MXx52uRFwm3u1_e1b3V/Олексюк Дмитро">
+              Олексюк Дмитро
+            </option>
+            <option value="-MXx51zea304FYdGo9Ew/Пархомчук Денис">
+              Пархомчук Денис
+            </option>
+            <option value="-MXx5164hnLC8XxRpxPP/Романюк Тимофій">
+              Романюк Тимофій
+            </option>
+            <option value="-MXx508DCDt4bsnbW8BI/Сидорук Олексій">
+              Сидорук Олександр
+            </option>
+            <option value="-MXx5-H7502mdMv6wJT6/Смічик Влад">
+              Смічик Влад
+            </option>
+            <option value="-MXx4z5vYsLdpCdLfS-Q/Ткачук Яна">Ткачук Яна</option>
+            <option value="-MXx2_-7TLg9jZmSOHZE/Шворак Влад">
+              Шворак Влад
+            </option>
+          </optgroup>
+        </select>
+        <h3>Що мав робити?</h3>
+        <select class="role">
+          <option value="wash">Мити підлогу</option>
+          <option value="sweep">Замітати</option>
+        </select>
+        <button class="remove-btn admin-btn">Видалити</button>
+      </div>
+    </section>
     <hr />
     <section class="fine section">
       <div class="container">
@@ -182,8 +345,7 @@
             </option>
           </optgroup>
           <optgroup label="17 группа">
-            
-             <option value="-MXx5OUdE1E3dqAXfBGH/Максимук Денис">
+            <option value="-MXx5OUdE1E3dqAXfBGH/Максимук Денис">
               Мороз Денис
             </option>
             <option value="-MXx5DZGJBeot4AOTIJI/Балецький Олександр">

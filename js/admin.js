@@ -17,48 +17,6 @@ async function getData(url) {
   return dataResponse;
 }
 
-// Антонюк Анатолій
-// Власюк Андрій
-// Гушинець Роман
-// Давидюк Назар
-// Денисенко Максим
-// Максимук Денис
-// Мушка Сергій
-// Павляшик Олександр
-// Приходько Максим
-// Римарук Влад
-// Хмарук Ілля
-// Шеремета Ілля
-// Ярмолюк Максим
-// Інкін Богдан
-// Балецький Олександр !!
-// Грошева Юля
-// Демченко Павло
-// Здрок Андрій
-// Кичка Анастасія
-// Лавренюк Ілля
-// Мороз Денис##
-// Олексюк Дмитро
-// Пархомчук Денис
-// Романюк Тимофій
-// Сидорук Олександр
-// Смічик Влад
-// Ткачук Яна
-// Чирук Роман
-// Шворак Влад
-
-// fetch(URL_GET,{
-// 	method: "POST",
-// 	body: JSON.stringify({
-// 		name: 'Мороз Денис',
-// 		count: 0,
-// 		lastDate: '',//new Date().toLocaleDateString().replaceAll('/','.')
-// 		countWash: 0,
-// 		countSweep: 0,
-// 		countFine: 0,
-// 	})
-// })
-
 const btn = document.querySelector(".submit");
 
 btn.addEventListener("click", () => {
@@ -69,14 +27,22 @@ btn.addEventListener("click", () => {
   getData(URL_GET)
     .then((data) => data.json())
     .then((data) => {
+      const date = document.querySelector("#date").value.split("-");
+      if (date.length === 1) {
+        new PopUp("err", "Ви не поставили дату").create();
+        setTimeout(() => {
+          new PopUp().close();
+        }, 5000);
+        return;
+      }
       updateData(URL_UPDATE(nameAndId[0]), {
         name: nameAndId[1],
         countFine:
           data[nameAndId[0]].countFine > 0
-            ? +data[nameAndId[0]].countFine - 1
+            ? +data[nameAndId[0]].countFine + 1
             : +data[nameAndId[0]].countFine,
         count: data[nameAndId[0]].count + 1,
-        lastDate: new Date().toLocaleDateString().replaceAll("/", "."),
+        lastDate: `${date[2]}.${date[1]}.${date[0]}`,
         countWash:
           role.value == "wash"
             ? +data[nameAndId[0]].countWash + 1
@@ -146,11 +112,12 @@ class PopUp {
   }
 
   create() {
-    let popUp = document.createElement("div");
+    const out = document.querySelector(".out-modal");
+    const popUp = document.createElement("div");
     popUp.classList.add("pop-up");
     popUp.innerHTML = this.textHtml;
 
-    document.body.insertAdjacentElement("afterbegin", popUp);
+    out.insertAdjacentElement("beforeend", popUp);
 
     if (this.type === "success") {
       popUp.classList.add("success");
@@ -164,3 +131,52 @@ class PopUp {
     document.querySelector(".pop-up").remove();
   }
 }
+
+//remove
+const removeBtn = document.querySelector(".remove-btn");
+
+removeBtn.addEventListener("click", () => {
+  const users = document.querySelector(".remove .users");
+  const role = document.querySelector(".remove .role");
+
+  const nameAndId = users.value.split("/");
+  getData(URL_GET)
+    .then((data) => data.json())
+    .then((data) => {
+      if (data[nameAndId[0]].count <= 0) {
+        new PopUp("err", "В нього немає чергуваннь для видалення").create();
+        setTimeout(() => {
+          new PopUp().close();
+        }, 5000);
+        return;
+      }
+      updateData(URL_UPDATE(nameAndId[0]), {
+        name: nameAndId[1],
+        countFine: data[nameAndId[0]].countFine,
+        count: data[nameAndId[0]].count - 1,
+        lastDate: "",
+        countWash:
+          role.value == "wash"
+            ? +data[nameAndId[0]].countWash - 1
+            : +data[nameAndId[0]].countWash,
+        countSweep:
+          role.value == "sweep"
+            ? +data[nameAndId[0]].countSweep - 1
+            : +data[nameAndId[0]].countSweep,
+      });
+      new PopUp("success", "Не буде чергувати").create();
+      setTimeout(() => {
+        new PopUp().close();
+      }, 5000);
+    })
+    .catch((err) => {
+      new PopUp("err", `щось пішло не так, ${err}`).create();
+      fetch(URL_FOR_ERROR, {
+        methods: "POST",
+        body: err,
+      });
+      setTimeout(() => {
+        new PopUp().close();
+      }, 5000);
+    });
+});

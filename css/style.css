@@ -8,6 +8,10 @@
           box-sizing: border-box;
 }
 
+button {
+  cursor: pointer;
+}
+
 body {
   position: relative;
   color: #fff;
@@ -203,6 +207,10 @@ select {
   padding: 20px 0px;
 }
 
+.section:not(:last-child) {
+  margin-bottom: 30px;
+}
+
 h2 {
   text-align: center;
   font-size: 2em;
@@ -233,9 +241,6 @@ select {
 }
 
 .pop-up {
-  position: fixed;
-  top: 15px;
-  right: 15px;
   border-radius: 5px;
   padding: 15px 25px;
   display: -webkit-box;
@@ -257,11 +262,11 @@ select {
 }
 
 .success {
-  background: rgba(60, 255, 0, 0.5);
+  background: rgba(60, 255, 0, 0.9);
 }
 
 .err {
-  background: rgba(255, 0, 0, 0.5);
+  background: rgba(255, 0, 0, 0.9);
 }
 
 @-webkit-keyframes opacityAnim {
@@ -297,5 +302,31 @@ select {
 
 .footer a {
   color: #01f34a;
+}
+
+#date {
+  display: block;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.out-modal {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  width: 500px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+@media (max-width: 600px) {
+  .out-modal {
+    width: 100%;
+    top: 5px;
+    right: 0;
+  }
 }
 /*# sourceMappingURL=style.css.map */
