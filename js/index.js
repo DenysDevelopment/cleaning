@@ -113,6 +113,6 @@ btnTodaytabElem.addEventListener("click", () => {
     }
   });
   if (!out.innerHTML.length) {
-    out.innerHTML = "<div class='not-found'>Немає трафів</div>";
+    out.innerHTML = "<div class='not-found'>Немає чергових</div>";
   }
 });
