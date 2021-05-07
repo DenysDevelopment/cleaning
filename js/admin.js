@@ -17,6 +17,7 @@ async function getData(url) {
   return dataResponse;
 }
 
+//add
 const btn = document.querySelector(".submit");
 
 btn.addEventListener("click", () => {
@@ -39,7 +40,7 @@ btn.addEventListener("click", () => {
         name: nameAndId[1],
         countFine:
           data[nameAndId[0]].countFine > 0
-            ? +data[nameAndId[0]].countFine + 1
+            ? +data[nameAndId[0]].countFine - 1
             : +data[nameAndId[0]].countFine,
         count: data[nameAndId[0]].count + 1,
         lastDate: `${date[2]}.${date[1]}.${date[0]}`,
@@ -51,6 +52,7 @@ btn.addEventListener("click", () => {
           role.value == "sweep"
             ? +data[nameAndId[0]].countSweep + 1
             : +data[nameAndId[0]].countSweep,
+        today: false,
       });
       new PopUp("success", "Успішно буде черговати").create();
       setTimeout(() => {
@@ -87,6 +89,7 @@ btnFine.addEventListener("click", () => {
         lastDate: data[nameAndId[0]].lastDate,
         countWash: +data[nameAndId[0]].countWash,
         countSweep: +data[nameAndId[0]].countSweep,
+        today: data[nameAndId[0]].today,
       });
       new PopUp("success", "Успішно буде черговати").create();
       setTimeout(() => {
@@ -163,8 +166,51 @@ removeBtn.addEventListener("click", () => {
           role.value == "sweep"
             ? +data[nameAndId[0]].countSweep - 1
             : +data[nameAndId[0]].countSweep,
+        today: false,
       });
       new PopUp("success", "Не буде чергувати").create();
+      setTimeout(() => {
+        new PopUp().close();
+      }, 5000);
+    })
+    .catch((err) => {
+      new PopUp("err", `щось пішло не так, ${err}`).create();
+      fetch(URL_FOR_ERROR, {
+        methods: "POST",
+        body: err,
+      });
+      setTimeout(() => {
+        new PopUp().close();
+      }, 5000);
+    });
+});
+
+//today
+const todayBtn = document.querySelector(".submit-today");
+
+todayBtn.addEventListener("click", () => {
+  const users = document.querySelector(".today .users");
+  const nameAndId = users.value.split("/");
+  getData(URL_GET)
+    .then((data) => data.json())
+    .then((data) => {
+      if (data[nameAndId[0]].today) {
+        new PopUp("err", "Він буде чергувати").create();
+        setTimeout(() => {
+          new PopUp().close();
+        }, 5000);
+        return;
+      }
+      updateData(URL_UPDATE(nameAndId[0]), {
+        name: nameAndId[1],
+        countFine: data[nameAndId[0]].countFine,
+        count: data[nameAndId[0]].count,
+        lastDate: "",
+        countWash: +data[nameAndId[0]].countWash,
+        countSweep: +data[nameAndId[0]].countSweep,
+        today: true,
+      });
+      new PopUp("success", "Буде чергувати").create();
       setTimeout(() => {
         new PopUp().close();
       }, 5000);

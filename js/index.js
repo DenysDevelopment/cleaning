@@ -88,3 +88,31 @@ window.addEventListener("load", async () => {
 
   // await loadPosts()
 });
+
+//tabs
+
+const btns = document.querySelectorAll(".btn");
+
+btns.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    btns.forEach((btn) => btn.classList.remove("btn--active"));
+    btn.classList.add("btn--active");
+  });
+});
+
+//today
+const btnTodaytabElem = document.querySelector(".today");
+
+btnTodaytabElem.addEventListener("click", () => {
+  out.innerHTML = "";
+  sortByFine(sortByCount(Object.values(data))).forEach((el) => {
+    if (el.today > 0) {
+      out.innerHTML += `<li class='users__item today--active'>
+        <div class="users__name">${el.name}</div>
+      </li>`;
+    }
+  });
+  if (!out.innerHTML.length) {
+    out.innerHTML = "<div class='not-found'>Немає трафів</div>";
+  }
+});

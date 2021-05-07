@@ -134,9 +134,14 @@ select {
   margin-bottom: 20px;
   // .tab__btns
   &__btns {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(autofill, minmax(100px, 1fr));
     gap: 10px;
+
+    @media (min-width: 600px) {
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 15px;
+    }
   }
 
   button {
@@ -158,6 +163,8 @@ select {
 .not-found {
   margin: 0 auto;
   font-size: 2em;
+
+  grid-column: 1 / -1;
 }
 
 .section {
@@ -263,4 +270,21 @@ select {
     top: 5px;
     right: 0;
   }
+}
+
+.btn {
+  font-size: 1.2rem;
+  &--active {
+    background: rgb(11, 197, 52);
+    color: #fff;
+  }
+}
+
+.today--active {
+  padding: 20px;
+  grid-template-columns: 1fr;
+}
+
+.today--active::before {
+  display: none;
 }
